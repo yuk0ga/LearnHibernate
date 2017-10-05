@@ -10,6 +10,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.dialect.H2Dialect;
+import org.hibernate.dialect.MySQL5Dialect;
+import org.hibernate.dialect.MySQLDialect;
 import tagbar.entity.Event;
 
 /**
@@ -21,11 +23,11 @@ public class N01_NativeBootstrap {
 
 	public static void main(String[] args) {
 		StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-				.applySetting(AvailableSettings.URL, "jdbc:h2:./db/section-1")
-				.applySetting(AvailableSettings.USER, "sa")
-				.applySetting(AvailableSettings.PASS, "sa")
-				.applySetting(AvailableSettings.DRIVER, "org.h2.Driver")
-				.applySetting(AvailableSettings.DIALECT, H2Dialect.class)
+				.applySetting(AvailableSettings.URL, "jdbc:mysql://localhost:3306/study")
+				.applySetting(AvailableSettings.USER, "root")
+				.applySetting(AvailableSettings.PASS, "1qazxsw2")
+				.applySetting(AvailableSettings.DRIVER, "com.mysql.jdbc.Driver")
+				.applySetting(AvailableSettings.DIALECT, MySQLDialect.class)
 				.applySetting(AvailableSettings.HBM2DDL_AUTO, "update")
 				.applySetting(AvailableSettings.SHOW_SQL, true)
 				.applySetting(AvailableSettings.FORMAT_SQL, true)
